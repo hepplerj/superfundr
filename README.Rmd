@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# superfunds
+# superfundr
 
 [![Build Status](https://travis-ci.org/hepplerj/superfunds.svg?branch=master)](https://travis-ci.org/hepplerj/superfunds)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/superfunds)](http://cran.r-project.org/package=superfunds)
@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 # Overview
 
-`superfunds` is an R data package for Superfund sites established by the Environmental Protection Agency. 
+`superfundr` is an R data package for Superfund sites established by the Environmental Protection Agency. 
 
 It's a work-in-progress and, at the moment, very incomplete.
+
+Data scraped from the [EPA NPL explorer](https://www.epa.gov/superfund/national-priorities-list-npl-sites-state).
