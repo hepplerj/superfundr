@@ -13,3 +13,18 @@ Overview
 It's a work-in-progress and, at the moment, very incomplete.
 
 Data scraped from the [EPA NPL explorer](https://www.epa.gov/superfund/national-priorities-list-npl-sites-state).
+
+Getting Started and Contributing
+--------------------------------
+
+We are an open source project. Want to help contribute? Open up an [issue](https://github.com/superfundr/resources/issues). Or, contribute your ideas, resources, and teaching material! To get started, take a look at [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Code of Conduct
+---------------
+
+`superfundr` is committed to creating and supporting an inclusive community of practice. Please see our [Code of Conduct](CODE_OF_CONDUCT.md).
+
+Project Leads
+=============
+
+Jason Heppler, PhD / University of Nebraska / t: @jaheppler g: @hepplerj
