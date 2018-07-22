@@ -1,13 +1,14 @@
 Package: superfunds
 Type: Package
 Title: Superfund Sites in the United States
-Version: 0.0.0.10
+Version: 0.0.0.9000
 Author: Jason A. Heppler
-Description: A dataset of Superfund sites in the United States intended for
-  learning R, mapping Superfund sites, and providing access to 
-  material related to the Superfund program. The data includes the site locations,
-  county, state, date of listing and deletion, reason for a site's existence, and 
-  URL to the Environmental Protection Agency's related reports about specific sites.
+Description: A dataset of the Environmental Protection Agency's Superfund sites 
+  in the United States intended for learning R, mapping Superfund sites, and 
+  providing access to  material related to the Superfund program. The data 
+  includes the site locations, county, state, date of listing and deletion, 
+  reason for a site's existence, and  URL to the Environmental Protection Agency's 
+  related reports about specific sites.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: yes
@@ -18,5 +19,5 @@ Depends:
   R (>= 3.0.2)
 Suggests:
   tidyverse (>= 1.1.0)
-URL: https://github.com/hepplerj/superfund
-BugReports: https://github.com/hepplerj/superfund/issues
+URL: https://github.com/hepplerj/superfundr
+BugReports: https://github.com/hepplerj/superfundr/issues
