@@ -23,4 +23,4 @@ superfunds$longitude <- gsub("\\s*\\[[^\\)]+\\]","",superfunds$longitude)
 superfunds$longitude <- as.numeric(superfunds$longitude)
 superfunds$latitude <- as.numeric(superfunds$latitude)
 
-devtools::use_data(superfunds)
+devtools::use_data(superfunds, overwrite = TRUE)
