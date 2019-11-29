@@ -54,9 +54,39 @@ Look at it:
 superfunds
 ```
 
+## Usage
+
+The data can be used in a variety of ways. You can count the number of contaminants at each site. 
+
+```{r count}
+superfunds %>% 
+  group_by(contaminant) %>% 
+  tally(sort = TRUE)
+```
+
+You can count the number of active, inactive, and deleted sites. 
+
+```{r active}
+superfunds %>% 
+  distinct(site_name, .keep_all = TRUE) %>% 
+  group_by(npl_status) %>% 
+  tally(sort = TRUE)
+```
+
+You can also map the locations using Leaflet. 
+
+```
+library(leaflet)
+library(superfundr)
+
+leaflet(data = superfunds %>% distinct(site_name, .keep_all = T)) %>% 
+  addProviderTiles("CartoDB.Positron") %>% 
+  addCircleMarkers(radius = 3, stroke = FALSE, fillOpacity = 0.5)
+```
+
 ## Contributing
 
-We are an open source project. Want to help contribute? Open up an [issue](https://github.com/superfundr/resources/issues). Or, contribute your ideas, resources, and teaching material! To get started, take a look at [CONTRIBUTING.md](CONTRIBUTING.md).
+This is an open source project. Want to help contribute? Open up an [issue](https://github.com/superfundr/resources/issues). Or, contribute your ideas, resources, and teaching material! To get started, take a look at [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Code of Conduct
 
@@ -64,4 +94,5 @@ We are an open source project. Want to help contribute? Open up an [issue](https
 
 # Project Lead
 
-Jason Heppler, PhD / University of Nebraska / t: @jaheppler g: @hepplerj
+Jason Heppler, PhD / University of Nebraska / t: @jaheppler g: @hepplerj  
+<https://jasonheppler.org>

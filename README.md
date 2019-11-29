@@ -59,22 +59,58 @@ Look at it:
 
 ``` r
 superfunds
-#> # A tibble: 1,332 x 13
-#>    region state site_name site_id epa_id address city    zip county ff   
-#>     <dbl> <chr> <chr>       <dbl> <chr>  <chr>   <chr> <dbl> <chr>  <chr>
-#>  1      1 CT    BARKHAMS…  100255 CTD98… ROUTE … BARK…  6063 LITCH… N    
-#>  2      1 CT    BEACON H…  100180 CTD07… BLACKB… BEAC…  6403 NEW H… N    
-#>  3      1 CT    DURHAM M…  100108 CTD00… MAIN ST DURH…  6422 MIDDL… N    
-#>  4      1 CT    GALLUP'S…  100201 CTD10… ROUTE … PLAI…  6374 WINDH… N    
-#>  5      1 CT    KELLOGG-…  100252 CTD98… NORWAL… NORW…  6856 FAIRF… N    
-#>  6      1 CT    LAUREL P…  100232 CTD98… HUNTER… NAUG…  6770 NEW H… N    
-#>  7      1 CT    LINEMAST…  100041 CTD00… 29 PLA… WOOD…  6281 WINDH… N    
-#>  8      1 CT    NEW LOND…  100261 CTD98… ROUTE … NEW …  6349 NEW L… Y    
-#>  9      1 CT    PRECISIO…  100156 CTD05… 1050 H… VERN…  6066 TOLLA… N    
-#> 10      1 CT    RAYMARK …  100094 CTD00… 75 EAS… STRA…  6614 FAIRF… N    
-#> # … with 1,322 more rows, and 3 more variables: latitude <dbl>,
-#> #   longitude <dbl>, superfunds_date <date>
+#> # A tibble: 66,386 x 17
+#>    site_name epa_id city  county state zipcode region npl_status
+#>    <chr>     <chr>  <chr> <chr>  <chr> <chr>    <dbl> <chr>     
+#>  1 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  2 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  3 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  4 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  5 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  6 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  7 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  8 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#>  9 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#> 10 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
+#> # … with 66,376 more rows, and 9 more variables:
+#> #   superfund_agreement <chr>, federal_facility <chr>, op_unit_no <dbl>,
+#> #   seq_id <dbl>, decision_type <chr>, completion_date <dttm>,
+#> #   fiscal_year <dbl>, media <chr>, contaminant <chr>
 ```
+
+## Usage
+
+The data can be used in a variety of ways. You can count the number of
+contaminants.
+
+``` r
+superfunds %>% 
+  group_by(contaminant) %>% 
+  tally(sort = TRUE)
+#> # A tibble: 663 x 2
+#>    contaminant           n
+#>    <chr>             <int>
+#>  1 ARSENIC            2667
+#>  2 LEAD               2531
+#>  3 TRICHLOROETHENE    2049
+#>  4 BENZENE            1659
+#>  5 TETRACHLOROETHENE  1645
+#>  6 CHROMIUM           1589
+#>  7 CADMIUM            1538
+#>  8 ZINC               1380
+#>  9 MANGANESE          1288
+#> 10 TOLUENE            1268
+#> # … with 653 more rows
+```
+
+You can also map the locations using Leaflet.
+
+    library(leaflet)
+    library(superfundr)
+    
+    leaflet(data = superfunds %>% distinct(site_name, .keep_all = T)) %>% 
+      addProviderTiles("CartoDB.Positron") %>% 
+      addCircleMarkers(radius = 3, stroke = FALSE, fillOpacity = 0.5)
 
 ## Contributing
 
