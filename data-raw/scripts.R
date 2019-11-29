@@ -16,7 +16,7 @@ superfunds <- as.data.frame(superfunds[-1,])
 
 # Column names
 headers <- c('region', 'state', 'site_name', 'site_id', 'epa_id', 'address',
-             'city', 'zip', 'county', 'ff', 'latitude','longitude','superfunds_date')
+             'city', 'zip', 'county', 'ff', 'latitude','longitude','final_date')
 
 # Apply custom column names
 names(superfunds) <- headers
