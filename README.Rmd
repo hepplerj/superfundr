@@ -14,19 +14,49 @@ knitr::opts_chunk$set(
 
 # superfundr
 
-[![Build Status](https://travis-ci.org/hepplerj/superfunds.svg?branch=master)](https://travis-ci.org/hepplerj/superfunds)
+<!-- badges: start -->
+[![Travis build Status](https://travis-ci.org/hepplerj/superfunds.svg?branch=master)](https://travis-ci.org/hepplerj/superfunds)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/superfunds)](http://cran.r-project.org/package=superfunds)
 [![Coverage Status](https://img.shields.io/codecov/c/github/hepplerj/superfunds/master.svg)](https://codecov.io/github/hepplerj/superfunds?branch=master)
+<!-- badges: end -->
 
-# Overview
+The `superfundr` package contains data on U.S. Superfund sites established by the Environmental Protection Agency. 
 
-`superfundr` is an R data package for Superfund sites established by the Environmental Protection Agency. 
+Data is processed with the `tabulizer` package using the [most recent available PDF](https://www.epa.gov/superfund/superfund-data-and-reports) from the EPA.
 
-It's a work-in-progress and, at the moment, very incomplete.
+## Installation
 
-Data scraped from the [EPA NPL explorer](https://www.epa.gov/superfund/national-priorities-list-npl-sites-state).
+`superfundr` is a data package containing a dataset of Superfund sites in the United States. The best way to install it is through `devtools`.
 
-## Getting Started and Contributing
+### Install direct from GitHub
+
+You can install the beta version of superfundr from [GitHub](https://github.com/hepplerj/superfundr) with:
+
+``` r
+devtools::install_github("hepplerj/superfundr")
+```
+
+## Loading the data
+
+The package works best with the [tidyverse](http://tidyverse.org/) libraries and the [simple features](https://r-spatial.github.io/sf/index.html) package for mapping.
+
+```{r libs}
+library(tidyverse)
+```
+
+Load the data:
+
+```{r load}
+library(superfundr)
+```
+
+Look at it:
+
+```{r look}
+superfunds
+```
+
+## Contributing
 
 We are an open source project. Want to help contribute? Open up an [issue](https://github.com/superfundr/resources/issues). Or, contribute your ideas, resources, and teaching material! To get started, take a look at [CONTRIBUTING.md](CONTRIBUTING.md).
 
@@ -34,6 +64,6 @@ We are an open source project. Want to help contribute? Open up an [issue](https
 
 `superfundr` is committed to creating and supporting an inclusive community of practice. Please see our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-# Project Leads
+# Project Lead
 
 Jason Heppler, PhD / University of Nebraska / t: @jaheppler g: @hepplerj
