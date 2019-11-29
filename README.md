@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Travis build
-Status](https://travis-ci.org/hepplerj/superfunds.svg?branch=master)](https://travis-ci.org/hepplerj/superfunds)
+Status](https://travis-ci.org/hepplerj/superfundr.svg?branch=master)](https://travis-ci.org/hepplerj/superfundr)
 <!-- badges: end -->
 
 The `superfundr` package contains data on U.S. Superfund sites
