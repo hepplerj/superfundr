@@ -59,7 +59,7 @@ Look at it:
 
 ``` r
 superfunds
-#> # A tibble: 66,386 x 17
+#> # A tibble: 66,386 x 20
 #>    site_name epa_id city  county state zipcode region npl_status
 #>    <chr>     <chr>  <chr> <chr>  <chr> <chr>    <dbl> <chr>     
 #>  1 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
@@ -72,16 +72,17 @@ superfunds
 #>  8 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
 #>  9 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
 #> 10 ATLAS TA… MAD00… FAIR… BRIST… MA    02719        1 Currently…
-#> # … with 66,376 more rows, and 9 more variables:
+#> # … with 66,376 more rows, and 12 more variables:
 #> #   superfund_agreement <chr>, federal_facility <chr>, op_unit_no <dbl>,
 #> #   seq_id <dbl>, decision_type <chr>, completion_date <dttm>,
-#> #   fiscal_year <dbl>, media <chr>, contaminant <chr>
+#> #   fiscal_year <dbl>, media <chr>, contaminant <chr>, address <fct>,
+#> #   latitude <dbl>, longitude <dbl>
 ```
 
 ## Usage
 
 The data can be used in a variety of ways. You can count the number of
-contaminants.
+contaminants at each site.
 
 ``` r
 superfunds %>% 
@@ -103,6 +104,25 @@ superfunds %>%
 #> # … with 653 more rows
 ```
 
+You can count the number of active, inactive, and deleted sites.
+
+``` r
+superfunds %>% 
+  distinct(site_name, .keep_all = TRUE) %>% 
+  group_by(npl_status) %>% 
+  tally(sort = TRUE)
+#> # A tibble: 7 x 2
+#>   npl_status                     n
+#>   <chr>                      <int>
+#> 1 Currently on the Final NPL  1141
+#> 2 Deleted from the Final NPL   362
+#> 3 Not on the NPL                32
+#> 4 Proposed for NPL               3
+#> 5 Removed from Proposed NPL      2
+#> 6 Site is Part of NPL Site       2
+#> 7 <NA>                           1
+```
+
 You can also map the locations using Leaflet.
 
     library(leaflet)
@@ -114,7 +134,7 @@ You can also map the locations using Leaflet.
 
 ## Contributing
 
-We are an open source project. Want to help contribute? Open up an
+This is an open source project. Want to help contribute? Open up an
 [issue](https://github.com/superfundr/resources/issues). Or, contribute
 your ideas, resources, and teaching material\! To get started, take a
 look at [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -127,4 +147,6 @@ Conduct](CODE_OF_CONDUCT.md).
 
 # Project Lead
 
-Jason Heppler, PhD / University of Nebraska / t: @jaheppler g: @hepplerj
+Jason Heppler, PhD / University of Nebraska / t: @jaheppler g:
+@hepplerj  
+<https://jasonheppler.org>
