@@ -7,9 +7,6 @@
 
 [![Travis build
 Status](https://travis-ci.org/hepplerj/superfunds.svg?branch=master)](https://travis-ci.org/hepplerj/superfunds)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/superfunds)](http://cran.r-project.org/package=superfunds)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/hepplerj/superfunds/master.svg)](https://codecov.io/github/hepplerj/superfunds?branch=master)
 <!-- badges: end -->
 
 The `superfundr` package contains data on U.S. Superfund sites
@@ -62,23 +59,21 @@ Look at it:
 
 ``` r
 superfunds
-#> # A tibble: 1,566 x 18
-#>    cerclis_id name  address county city  state congressional_d… hrs_score 
-#>    <chr>      <chr> <chr>   <chr>  <chr> <chr>            <dbl> <date>    
-#>  1 ALN000410… 35th… 3500 3… Jeffe… <NA>  Alab…               NA NA        
-#>  2 AL6210020… Alab… STATE … Talla… <NA>  Alab…               NA NA        
-#>  3 ALD004022… Alab… 570 HI… Shelby <NA>  Alab…               NA NA        
-#>  4 ALD981868… Amer… HIGHWA… Henry  <NA>  Alab…               NA NA        
-#>  5 AL3210020… Anni… "702 C… Calho… <NA>  Alab…               NA NA        
-#>  6 AL0001058… Capi… MADISO… Montg… <NA>  Alab…               NA NA        
-#>  7 ALD001221… Ciba… OFF HW… Washi… <NA>  Alab…               NA NA        
-#>  8 ALD041906… Inte… 8551 B… Jeffe… <NA>  Alab…               NA NA        
-#>  9 ALD031618… Mowb… JCT OF… Butler <NA>  Alab…               NA NA        
-#> 10 ALD008188… Olin… OLIN R… Washi… <NA>  Alab…               NA NA        
-#> # … with 1,556 more rows, and 10 more variables: reason <chr>,
-#> #   proposed <date>, listed <date>, construction_completed <date>,
-#> #   partially_deleted <chr>, deleted <chr>, report <chr>, longitude <dbl>,
-#> #   latitude <dbl>, details <chr>
+#> # A tibble: 1,332 x 13
+#>    region state site_name site_id epa_id address city    zip county ff   
+#>     <dbl> <chr> <chr>       <dbl> <chr>  <chr>   <chr> <dbl> <chr>  <chr>
+#>  1      1 CT    BARKHAMS…  100255 CTD98… ROUTE … BARK…  6063 LITCH… N    
+#>  2      1 CT    BEACON H…  100180 CTD07… BLACKB… BEAC…  6403 NEW H… N    
+#>  3      1 CT    DURHAM M…  100108 CTD00… MAIN ST DURH…  6422 MIDDL… N    
+#>  4      1 CT    GALLUP'S…  100201 CTD10… ROUTE … PLAI…  6374 WINDH… N    
+#>  5      1 CT    KELLOGG-…  100252 CTD98… NORWAL… NORW…  6856 FAIRF… N    
+#>  6      1 CT    LAUREL P…  100232 CTD98… HUNTER… NAUG…  6770 NEW H… N    
+#>  7      1 CT    LINEMAST…  100041 CTD00… 29 PLA… WOOD…  6281 WINDH… N    
+#>  8      1 CT    NEW LOND…  100261 CTD98… ROUTE … NEW …  6349 NEW L… Y    
+#>  9      1 CT    PRECISIO…  100156 CTD05… 1050 H… VERN…  6066 TOLLA… N    
+#> 10      1 CT    RAYMARK …  100094 CTD00… 75 EAS… STRA…  6614 FAIRF… N    
+#> # … with 1,322 more rows, and 3 more variables: latitude <dbl>,
+#> #   longitude <dbl>, superfunds_date <date>
 ```
 
 ## Contributing
