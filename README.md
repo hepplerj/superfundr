@@ -5,28 +5,31 @@
 
 <!-- badges: start -->
 
-[![Travis build
-Status](https://travis-ci.org/hepplerj/superfunds.svg?branch=master)](https://travis-ci.org/hepplerj/superfunds)
+[![Build
+Status](https://travis-ci.org/hepplerj/superfundr.svg?branch=master)](https://travis-ci.org/hepplerj/superfundr)
+[![MIT
+license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/)
+[![Jason
+Heppler](https://img.shields.io/badge/ORCiD-0000--0003--4158--6186-green.svg)](https://orcid.org/0000-0003-4158-6186)
 <!-- badges: end -->
 
 The `superfundr` package contains data on U.S. Superfund sites
 established by the Environmental Protection Agency.
 
-Data is processed with the `tabulizer` package using the [most recent
-available PDF](https://www.epa.gov/superfund/superfund-data-and-reports)
-from the EPA.
+The data is processed with a combination of the `tabulizer` package and
+various `tidyverse` methods using the [most recent available PDF and
+Excel data](https://www.epa.gov/superfund/superfund-data-and-reports)
+from the Environmental Protection Agency.
 
 ## Installation
 
 `superfundr` is a data package containing a dataset of Superfund sites
 in the United States. The best way to install it is through `devtools`.
-
-### Install direct from GitHub
-
-You can install the beta version of superfundr from
+You can install superfundr from
 [GitHub](https://github.com/hepplerj/superfundr) with:
 
 ``` r
+library(devtools)
 devtools::install_github("hepplerj/superfundr")
 ```
 
@@ -39,12 +42,12 @@ mapping.
 
 ``` r
 library(tidyverse)
-#> ── Attaching packages ────────────────────────────────────────────── tidyverse 1.2.1 ──
+#> ── Attaching packages ──────────────────────────────────────── tidyverse 1.2.1 ──
 #> ✔ ggplot2 3.2.0     ✔ purrr   0.3.3
 #> ✔ tibble  2.1.3     ✔ dplyr   0.8.1
 #> ✔ tidyr   0.8.3     ✔ stringr 1.4.0
 #> ✔ readr   1.3.1     ✔ forcats 0.4.0
-#> ── Conflicts ───────────────────────────────────────────────── tidyverse_conflicts() ──
+#> ── Conflicts ─────────────────────────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
 ```
@@ -81,8 +84,15 @@ superfunds
 
 ## Usage
 
-The data can be used in a variety of ways. You can count the number of
-contaminants at each site.
+The data is structured just as it comes from the Environmental
+Protection Agency, which lists out each contaminant at each site.
+`superfundr` adds additional information from the EPA’s basic
+spreadsheet, including latitude and longitude coordinates and addresses,
+and converts data as necessary (title case for text, dates as date
+objects, etc).
+
+The data can be used in a variety of ways. You can count the total
+number of contaminants across all sites.
 
 ``` r
 superfunds %>% 
@@ -123,7 +133,9 @@ superfunds %>%
 #> 7 <NA>                           1
 ```
 
-You can also map the locations using Leaflet.
+You can also map the locations of sites using Leaflet, which may also
+lend itself to further spatial analysis using Census or demographic
+information.
 
     library(leaflet)
     library(superfundr)
@@ -134,10 +146,25 @@ You can also map the locations using Leaflet.
 
 ## Contributing
 
-This is an open source project. Want to help contribute? Open up an
-[issue](https://github.com/superfundr/resources/issues). Or, contribute
-your ideas, resources, and teaching material\! To get started, take a
-look at [CONTRIBUTING.md](CONTRIBUTING.md).
+This is an open source project and is open to contributions. There are
+several ways to get involved:
+
+  - Open an [issue](https://github.com/superfundr/resources/issues). If
+    you’re running into problems with executing code, consider using the
+    [reprex](https://github.com/tidyverse/reprex) package to create a
+    reproducible example.
+  - Contribute your ideas, resources, and teaching material. Further
+    examples on how to work with or use the dataset is always welcome.
+  - Contributing documentation: Clarifying and expanding on the
+    documentation is always appreciated. `superfundr` uses roxygen2,
+    which provides documentation at the top of any function definition.
+    Please submit improvements as a pull request.
+  - Contributing code: If you see something that needs improving, data
+    that seems incorrect, or want to include further data enhancements
+    and you’d like to make the changes, contributed code is most
+    welcome.
+
+To get started, take a look at [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Code of Conduct
 
