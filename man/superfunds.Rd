@@ -42,4 +42,7 @@ National Priorities List (NPL); and 2) sites with a Superfund Alternative Approa
 Agreement in place. The only sites included that are 1) not on the NPL; 2) proposed for NPL;
 or 3) removed from proposed NPL, are those with an SAA Agreement in place.
 }
+\examples{
+head(superfunds)
+}
 \keyword{datasets}
