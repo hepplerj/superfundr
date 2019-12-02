@@ -47,5 +47,13 @@ superfunds <- left_join(superfunds, superfunds_latlon, by = "epa_id")
 rm(superfunds_latlon)
 rm(superfunds_match)
 
+# Convert text to title case
+superfunds <- superfunds %>%
+  mutate(site_name = stringr::str_to_title(site_name)) %>%
+  mutate(city = stringr::str_to_title(city)) %>%
+  mutate(county = stringr::str_to_title(county)) %>%
+  mutate(address = stringr::str_to_title(address)) %>%
+  mutate(contaminant = stringr::str_to_title(contaminant))
+
 
 usethis::use_data(superfunds, overwrite = TRUE)
