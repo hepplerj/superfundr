@@ -32,4 +32,6 @@
 #'   ...
 #' }
 #' @source \url{https://www.epa.gov/superfund/search-superfund-sites-where-you-live}
+#' @examples
+#' head(superfunds)
 "superfunds"
