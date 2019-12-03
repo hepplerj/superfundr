@@ -27,7 +27,7 @@ superfunds_match <- do.call(rbind, out[-length(out)])
 rm(out)
 rm(location)
 
-# table headers get extracted as rows with bad formatting. Dump them.
+# Table headers get extracted as rows with bad formatting. Dump them.
 superfunds_match <- as.data.frame(superfunds_match[-1,])
 
 # Column names
@@ -37,8 +37,8 @@ headers_match <- c('region', 'state', 'site_name', 'site_id', 'epa_id', 'address
 # Apply custom column names.
 names(superfunds_match) <- headers_match
 
-# Match EPA ID from superfunds and superfunds_match to pull in lat/long
-# coordinates and addresses.
+# Match EPA ID from superfunds and superfunds_match to join lat/long
+# coordinates and addresses. Convert lat/lon from factor to numeric.
 superfunds_latlon <- superfunds_match %>%
   select(epa_id, address, latitude, longitude) %>%
   mutate_at(c("latitude","longitude"), list(~ as.numeric(levels(.))[.]))
@@ -55,5 +55,5 @@ superfunds <- superfunds %>%
   mutate(address = stringr::str_to_title(address)) %>%
   mutate(contaminant = stringr::str_to_title(contaminant))
 
-
+# Write data
 usethis::use_data(superfunds, overwrite = TRUE)
