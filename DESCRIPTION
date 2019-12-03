@@ -5,7 +5,8 @@ Authors@R:
     person(given = "Jason",
            family = "Heppler",
            role = c("aut", "cre"),
-           email = "jason@jasonheppler.org")
+           email = "jason@jasonheppler.org",
+           comment = c(ORCID = "0000-0003-4158-6186"))
 Description: A dataset of the Environmental Protection Agency's Superfund sites 
   in the United States intended for learning R, mapping Superfund sites, and 
   providing access to  material related to the Superfund program. The data 
@@ -15,7 +16,7 @@ Description: A dataset of the Environmental Protection Agency's Superfund sites
 License: MIT + file LICENSE
 Depends: R (>= 3.5)
 Encoding: UTF-8
-LazyData: true
+LazyData: TRUE
 RoxygenNote: 7.0.1
 URL: https://github.com/hepplerj/superfundr
 BugReports: https://github.com/hepplerj/superfundr/issues
